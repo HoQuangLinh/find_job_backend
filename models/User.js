@@ -4,7 +4,6 @@ var uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
 let user_Schema = new Schema({
-  
   email: {
     type: String,
     required: true,
@@ -26,15 +25,16 @@ let user_Schema = new Schema({
   address: {
     type: String,
   },
- 
+
   gender: {
     type: String,
   },
   imageUrl: {
     type: String,
   },
-  position: {
+  department: {
     type: String,
+    enum: ["exchange", "employer", "candidate"],
     required: true,
   },
   birthday: {
