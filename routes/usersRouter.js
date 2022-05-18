@@ -37,7 +37,6 @@ router.post("/register", function (req, res) {
   let user = User({
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 10),
-    department: req.body.department,
     phone: req.body.phone,
     fullname: req.body.fullname,
   });

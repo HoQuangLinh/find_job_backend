@@ -3,15 +3,11 @@ const app = express();
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 
-const swaggerUi = require("swagger-ui-express")
+const swaggerUi = require("swagger-ui-express");
 swaggerDocument = require("./swagger.json");
 
 //Add swagger
-app.use(
-    '/api-doc',
-    swaggerUi.serve, 
-    swaggerUi.setup(swaggerDocument)
-  );
+app.use("/api-doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 //Log web
 app.use(morgan("tiny"));
 
@@ -24,13 +20,13 @@ app.use(express.json()); //to support JSON encode
 
 //CORS
 var cors = require("cors");
+
 app.use(cors());
 app.get("/", (req, res) => res.send("Hello from homepage"));
 
 //Routes app
-var usersRouter=require("./routes/usersRouter")
-app.use("/api/users",usersRouter);
-
+var usersRouter = require("./routes/usersRouter");
+app.use("/api/users", usersRouter);
 
 //Connect to database
 mongoose

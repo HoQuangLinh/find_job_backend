@@ -32,12 +32,11 @@ let user_Schema = new Schema({
   imageUrl: {
     type: String,
   },
-  department: {
-    type: String,
-    enum: ["exchange", "employer", "candidate"],
-    required: true,
-  },
+
   birthday: {
+    type: Date,
+  },
+  registerDay: {
     type: Date,
     default: Date.now,
   },
