@@ -23,9 +23,11 @@ app.get("/", (req, res) => res.send("Hello from homepage"));
 var usersRouter = require("./routes/usersRouter");
 var companiesRouter = require("./routes/companyRouter");
 var candidatesRouter = require("./routes/candidateRouter");
+var categoriesRouter = require("./routes/categoriesRouter");
 app.use("/api/users", usersRouter);
 app.use("/api/companies", companiesRouter);
 app.use("/api/candidates", candidatesRouter);
+app.use("/api/categories", categoriesRouter);
 
 //Connect to database
 mongoose

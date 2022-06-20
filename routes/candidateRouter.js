@@ -45,7 +45,6 @@ router.post("/", multerUploads, async (req, res) => {
       folder: "Linh",
     });
   }
-  console.log;
 
   let candidate = Candidate({
     cmnd: req.body.cmnd,
