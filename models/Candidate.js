@@ -3,31 +3,36 @@ var uniqueValidator = require("mongoose-unique-validator");
 
 const Schema = mongoose.Schema;
 
-let company_Schema = new Schema({
+let candidate_Schema = new Schema({
+  cmnd: {
+    type: String,
+    unique: true,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   email: {
+    type: String,
+  },
+  address: {
     type: String,
   },
   phone: {
     type: String,
   },
-  tax: {
+  gender: {
     type: String,
+    default: "Male",
   },
   startDate: {
     type: Date,
     default: Date.now,
   },
-  package: {
-    type: String,
-    default: "Free",
-  },
-  employer: {
-    type: String,
+  birthDate: {
+    type: Date,
+    default: Date.now,
   },
   avatar: {
     type: String,
@@ -36,6 +41,6 @@ let company_Schema = new Schema({
   },
 });
 
-company_Schema.plugin(uniqueValidator);
+candidate_Schema.plugin(uniqueValidator);
 
-exports.Company = mongoose.model("Company", company_Schema);
+exports.Candidate = mongoose.model("Candidate", candidate_Schema);
